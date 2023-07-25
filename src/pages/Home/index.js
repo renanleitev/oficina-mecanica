@@ -1,10 +1,50 @@
 import React from "react";
-import { Container } from "../../styles";
+import { MainContainer } from "../../styles";
+import { ProductsContainer, ItemContainer } from "./styled";
+import SearchBar from "../../components/SearchBar";
 
-export default function Home(){
+export default function Home() {
     return (
-        <Container>
-            <p>Teste</p>
-        </Container>
+        <MainContainer>
+            <SearchBar />
+            <ProductsContainer>
+                <ItemContainer>
+                    <p>Product</p>
+                    <p>Price</p>
+                </ItemContainer>
+                <ItemContainer>
+                    <p>Product</p>
+                    <p>Price</p>
+                </ItemContainer>
+                <ItemContainer>
+                    <p>Product</p>
+                    <p>Price</p>
+                </ItemContainer>
+                <ItemContainer>
+                    <p>Product</p>
+                    <p>Price</p>
+                </ItemContainer>
+                <ItemContainer>
+                    <p>Product</p>
+                    <p>Price</p>
+                </ItemContainer>
+                <ItemContainer>
+                    <p>Product</p>
+                    <p>Price</p>
+                </ItemContainer>
+                <ItemContainer>
+                    <p>Product</p>
+                    <p>Price</p>
+                </ItemContainer>
+                <ItemContainer>
+                    <p>Product</p>
+                    <p>Price</p>
+                </ItemContainer>
+                <ItemContainer>
+                    <p>Product</p>
+                    <p>Price</p>
+                </ItemContainer>
+            </ProductsContainer>
+        </MainContainer>
     )
 }

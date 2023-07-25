@@ -5,18 +5,20 @@ import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import store, { persistor } from './store';
 import GlobalStyle from './styles';
-// import Header from './components/Header';
-// import Footer from './components/Footer';
+import Header from './components/Header';
+import Footer from './components/Footer';
 import DefaultRoutes from './routes';
+// Para adicionar o CSS da biblioteca RSuite
+import 'rsuite/dist/rsuite.min.css';
 
 function App() {
     return (
         <Provider store={store}>
             <PersistGate persistor={persistor}>
                 <BrowserRouter> 
-                    {/* <Header/> */}
+                    <Header/>
                     <DefaultRoutes/>
-                    {/* <Footer/> */}
+                    <Footer/>
                     <GlobalStyle/>
                     <ToastContainer autoClose={3000} className="toast-container"/>
                 </BrowserRouter>

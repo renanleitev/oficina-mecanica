@@ -13,7 +13,7 @@ export default createGlobalStyle`
     body {
         font-family: sans-serif;
         color: ${colors.primaryDarkColor};
-        background-color: ${colors.primaryDarkColor};
+        background-color: ${colors.primaryColor};
     }
     html, body, #root {
         height: 100%;
@@ -22,7 +22,7 @@ export default createGlobalStyle`
         cursor: pointer;
         background: ${colors.primaryColor};
         border: none;
-        color: #fff;
+        color: ${colors.primaryWhiteColor};
         padding: 10px 20px;
         border-radius: 4px;
         font-weight: 700;
@@ -48,10 +48,17 @@ export default createGlobalStyle`
     }
 `;
 
+export const MainContainer = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 100vh;
+`;
+
 export const Container = styled.section`
     max-width: 360px;
     background: ${colors.primaryWhiteColor};
-    margin: 30px auto;
     padding: 30px;
     display: flex;
     flex-direction: column;
@@ -69,11 +76,16 @@ export const Container = styled.section`
 
 export const Form = styled.form`
     display: flex;
+    background: ${colors.primaryWhiteColor};
     flex-direction: column;
     justify-content: center;
-    width: 100%;
+    height: 95vh;
+    width: auto;
+    border-radius: 20px;
+    padding: 30px;
     h1, h2{
         text-align: center;
+        margin-bottom: 10px;
     }
     .link{
         margin-top: 10px;
@@ -83,20 +95,26 @@ export const Form = styled.form`
         color: ${colors.infoColor};
     }
     label {
-        font-size: larger;
+        position: absolute;
         font-weight: bolder;
-        text-align: center;
-        margin-right: 10px;
-        margin-top: 15px;
-        width: 250px;
+        font-size: 12px;
+        text-align: left;
+        margin: -7px auto;
+        margin-left: 10px;
+        padding: 1px;
+        background-color: ${colors.primaryWhiteColor};
     }
     input {
-        border: none;
-        outline: none;
+        border: 1px solid ${colors.primaryDarkColor};
         width: 250px;
-        padding-top: 5px;
-        border-bottom: 1px solid ${colors.primaryDarkColor};
-        border-radius: 0;
+        padding: 20px;
+    }
+    /* Removendo as cores do background do input */
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover, 
+    input:-webkit-autofill:focus, 
+    input:-webkit-autofill:active{
+        -webkit-box-shadow: 0 0 0 30px ${colors.primaryWhiteColor} inset;
     }
     button {
         border-radius: 20px;
