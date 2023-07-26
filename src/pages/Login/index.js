@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import { MainContainer, Form } from "../../styles";
-import Input from '../../components/shared/Input';
+import Input from '../../components/shared/InputData';
 import { initialUser } from "../../store/modules/users";
 
 export default function Login(){

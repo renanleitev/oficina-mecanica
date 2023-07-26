@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { MainContainer, Form } from "../../styles";
-import Input from '../../components/shared/Input';
+import InputData from '../../components/shared/InputData';
 import { initialUser } from "../../store/modules/users";
 import { FlexRowContainer, FlexColumnContainer } from "../../styles";
 
@@ -12,34 +12,34 @@ export default function SignIn() {
                 <h1>Sign in</h1>
                 <FlexRowContainer>
                     <FlexColumnContainer>
-                        <Input
+                        <InputData
                             keyName={'name'}
                             keyValue={initialUser.name}
                             data={user}
                             setData={setUser} />
-                        <Input
+                        <InputData
                             keyName={'surname'}
                             keyValue={initialUser.surname}
                             data={user}
                             setData={setUser} />
-                        <Input
+                        <InputData
                             keyName={'address'}
                             keyValue={initialUser.address}
                             data={user}
                             setData={setUser} />
                     </FlexColumnContainer>
                     <FlexColumnContainer>
-                        <Input
+                        <InputData
                             keyName={'email'}
                             keyValue={initialUser.email}
                             data={user}
                             setData={setUser} />
-                        <Input
+                        <InputData
                             keyName={'username'}
                             keyValue={initialUser.username}
                             data={user}
                             setData={setUser} />
-                        <Input
+                        <InputData
                             keyName={'password'}
                             keyValue={initialUser.password}
                             data={user}

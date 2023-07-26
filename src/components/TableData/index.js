@@ -1,5 +1,5 @@
 import React from "react";
-import { Table, IconButton, Pagination } from 'rsuite';
+import { Table, IconButton, Pagination, Checkbox } from 'rsuite';
 import CollaspedOutlineIcon from '@rsuite/icons/CollaspedOutline';
 import ExpandOutlineIcon from '@rsuite/icons/ExpandOutline';
 import { AdminContainer, PaginationContainer } from "./styled";
@@ -48,6 +48,19 @@ const renderRowExpanded = rowData => {
         </div>
     );
 };
+
+const CheckCell = ({ rowData, onChange, checkedKeys, dataKey, ...props }) => (
+    <Cell {...props} style={{ padding: 0 }}>
+        <div style={{ lineHeight: '46px' }}>
+            <Checkbox
+                value={rowData[dataKey]}
+                inline
+                onChange={onChange}
+                checked={checkedKeys.some(item => item === rowData[dataKey])}
+            />
+        </div>
+    </Cell>
+);
 
 export default function TableData(props) {
     const defaultData = props.data;
@@ -112,10 +125,29 @@ export default function TableData(props) {
             setSortType(sortType);
         }, 500);
     };
+    // Checar itens por linha
+    const [checkedKeys, setCheckedKeys] = React.useState([]);
+    let checked = false;
+    let indeterminate = false;
+    if (checkedKeys.length === data.length) {
+        checked = true;
+    } else if (checkedKeys.length === 0) {
+        checked = false;
+    } else if (checkedKeys.length > 0 && checkedKeys.length < data.length) {
+        indeterminate = true;
+    }
+    const handleCheckAll = (value, checked) => {
+        const keys = checked ? data.map(item => item.id) : [];
+        setCheckedKeys(keys);
+    };
+    const handleCheck = (value, checked) => {
+        const keys = checked ? [...checkedKeys, value] : checkedKeys.filter(item => item !== value);
+        setCheckedKeys(keys);
+    };
     return (
         <AdminContainer>
             <PaginationContainer>
-            <ButtonOptions title={props.title}/>
+                <ButtonOptions title={props.title} />
                 <SearchBar />
                 <Pagination
                     prev
@@ -138,8 +170,8 @@ export default function TableData(props) {
             <Table
                 shouldUpdateScroll={false} // Prevent the scrollbar from scrolling to the top after the table content area height changes.
                 height={400}
-                width={730}
-                style={{borderRadius: '0px 0px 20px 20px'}}
+                width={800}
+                style={{ borderRadius: '0px 0px 20px 20px' }}
                 rowKey={rowKey}
                 expandedRowKeys={expandedRowKeys}
                 onRowClick={data => {
@@ -152,6 +184,19 @@ export default function TableData(props) {
                 onSortColumn={handleSortColumn}
                 loading={loading}
             >
+                <Column width={70} align="center">
+                    <HeaderCell style={{ padding: 0 }}>
+                        <div style={{ lineHeight: '40px' }}>
+                            <Checkbox
+                                inline
+                                checked={checked}
+                                indeterminate={indeterminate}
+                                onChange={handleCheckAll}
+                            />
+                        </div>
+                    </HeaderCell>
+                    <CheckCell dataKey="id" checkedKeys={checkedKeys} onChange={handleCheck} />
+                </Column>
                 <Column width={70} align="center">
                     <HeaderCell>#</HeaderCell>
                     <ExpandCell dataKey="id" expandedRowKeys={expandedRowKeys} onChange={handleExpanded} />

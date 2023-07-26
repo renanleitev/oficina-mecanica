@@ -4,10 +4,10 @@ import Home from "../pages/Home";
 import Login from '../pages/Login';
 import SignIn from '../pages/SignIn';
 import Page404 from '../pages/Page404';
-import Employees from "../pages/Employees";
-import Users from "../pages/Users";
-import Requests from "../pages/Requests";
-import Products from "../pages/Products";
+import Employees from "../pages/Admin/Employees";
+import Users from "../pages/Admin/Users";
+import Requests from "../pages/Admin/Requests";
+import Products from "../pages/Admin/Products";
 // import { useSelector } from 'react-redux';
 
 export default function DefaultRoutes(){

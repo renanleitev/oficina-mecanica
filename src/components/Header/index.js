@@ -10,7 +10,7 @@ export default function Header() {
     return (
         <SearchBarContainer>
             <Navbar appearance="subtle">
-                <Navbar.Brand href="#">Oficina Mecânica</Navbar.Brand>
+                <Navbar.Brand href="/">Oficina Mecânica</Navbar.Brand>
                 <Nav>
                     <Nav.Item icon={<HomeIcon />}>Home</Nav.Item>
                     <Nav.Item>News</Nav.Item>

@@ -2,7 +2,7 @@ import React, {useState, useCallback, useMemo} from 'react';
 import {startCase} from 'lodash';
 import { InputContainer } from './styled';
 
-export default function Input(props){
+export default function InputData(props){
     const [type, setType] = useState('text');
     useMemo(() => {
         switch(props.keyName){

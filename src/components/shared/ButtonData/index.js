@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import PlusIcon from '@rsuite/icons/Plus';
 import TrashIcon from '@rsuite/icons/Trash';
-import FolderFillIcon from '@rsuite/icons/FolderFill';
+import EditIcon from '@rsuite/icons/Edit';
 import SendIcon from '@rsuite/icons/Send';
 import StarIcon from '@rsuite/icons/legacy/Star';
 import { IconButton } from 'rsuite';
@@ -12,7 +12,7 @@ const buttonStyle = {
     color: colors.primaryWhiteColor
 };
 
-export default function Button(props) {
+export default function ButtonData(props) {
     const [icon, setIcon] = useState(<StarIcon style={buttonStyle}/>);
     useEffect(() => {
         switch (props.title) {
@@ -22,8 +22,8 @@ export default function Button(props) {
             case 'delete':
                 setIcon(<TrashIcon style={buttonStyle}/>);
                 break;
-            case 'open':
-                setIcon(<FolderFillIcon style={buttonStyle}/>);
+            case 'edit':
+                setIcon(<EditIcon style={buttonStyle}/>);
                 break;
             case 'export':
                 setIcon(<SendIcon style={buttonStyle}/>);
@@ -36,7 +36,9 @@ export default function Button(props) {
     return (
         <IconButton
             icon={icon}
-            style={buttonStyle}>
+            style={buttonStyle}
+            onClick={props.onClick}
+            >
             {props.title}
         </IconButton>
     )
