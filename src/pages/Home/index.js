@@ -1,7 +1,7 @@
 import React from "react";
 import { MainContainer } from "../../styles";
 import { ProductsContainer, ItemContainer } from "./styled";
-import SearchBar from "../../components/SearchBar";
+import SearchBar from "../../components/Header";
 
 export default function Home() {
     return (

@@ -56,6 +56,16 @@ export const MainContainer = styled.div`
     min-height: 100vh;
 `;
 
+export const FlexRowContainer = styled.div`
+    display: flex;
+    flex-direction: row;
+`;
+
+export const FlexColumnContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+`;
+
 export const Container = styled.section`
     max-width: 360px;
     background: ${colors.primaryWhiteColor};
@@ -79,7 +89,6 @@ export const Form = styled.form`
     background: ${colors.primaryWhiteColor};
     flex-direction: column;
     justify-content: center;
-    height: 95vh;
     width: auto;
     border-radius: 20px;
     padding: 30px;

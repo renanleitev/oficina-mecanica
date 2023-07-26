@@ -1,5 +1,7 @@
 export const primaryColor = 'darkblue';
 
+export const secundaryColor = 'royalblue';
+
 export const primaryWhiteColor = 'white';
 
 export const primaryDarkColor = 'black';

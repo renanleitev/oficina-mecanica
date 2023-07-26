@@ -4,7 +4,10 @@ import Home from "../pages/Home";
 import Login from '../pages/Login';
 import SignIn from '../pages/SignIn';
 import Page404 from '../pages/Page404';
-import Admin from "../pages/Admin";
+import Employees from "../pages/Employees";
+import Users from "../pages/Users";
+import Requests from "../pages/Requests";
+import Products from "../pages/Products";
 // import { useSelector } from 'react-redux';
 
 export default function DefaultRoutes(){
@@ -14,7 +17,10 @@ export default function DefaultRoutes(){
             <Route exact path='/' element={<Home/>}/>
             <Route path='/login' element={<Login/>}/>
             <Route path='/signin' element={<SignIn/>}/>
-            <Route path='/admin' element={<Admin/>}/>
+            <Route path='/admin/employees' element={<Employees/>}/>
+            <Route path='/admin/products' element={<Products/>}/>
+            <Route path='/admin/requests' element={<Requests/>}/>
+            <Route path='/admin/users' element={<Users/>}/>
             <Route path='*' element={<Page404/>}/>
         </Routes>
     );
